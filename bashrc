@@ -20,7 +20,7 @@ fi
 ################
 # Setup Environment
 ################
-export PS1="\n\[\e[0;36m\]┌─[\[\e[0m\]\[\e[1;33m\]\u\[\e[0m\]\[\e[1;36m\] @ \[\e[0m\]\[\e[1;33m\]\h\[\e[0m\]\[\e[0;36m\]]─[\[\e[0m\]\[\e[1;33m\]\w\[\e[0m\]\[\e[0;36m\]]\[\e[0;36m\]─[\[\e[0m\]\[\e[0;31m\]\t\[\e[0m\]\[\e[0;36m\]]\[\e[0m\]\n\[\e[0;36m\]└─[\[\e[0m\]\[\e[1;37m\]\$\[\e[0m\]\[\e[0;36m\]]› \[\e[0m\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\n[\[$(tput setaf 3)\]\u\[$(tput setaf 2)\] @ \[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\n\`if [ \$? != 0 ]; then echo \\?!; fi\`\\$\[$(tput setaf 7)\]\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export EDITOR=/bin/nano
@@ -42,6 +42,7 @@ fi
 ################
 # Aliases
 ################
+alias brc="nano ~/.bashrc; source ~/.bashrc"
 alias ls="ls -lahp --color=auto"
 alias less="less -S"
 alias cls="ls -l | awk   '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
