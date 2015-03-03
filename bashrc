@@ -23,7 +23,7 @@ fi
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\n[\[$(tput setaf 3)\]\u\[$(tput setaf 2)\] @ \[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\n\`if [ \$? != 0 ]; then echo \\?!; fi\`\\$\[$(tput setaf 7)\]\[$(tput sgr0)\] \[$(tput sgr0)\]"
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
-export EDITOR=/bin/nano
+export EDITOR=nano
 
 platform=$(uname)
 
