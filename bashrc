@@ -20,7 +20,8 @@ fi
 ################
 # Setup Environment
 ################
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\n[\[$(tput setaf 3)\]\u\[$(tput setaf 2)\] @ \[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\n\`if [ \$? != 0 ]; then echo \\?!; fi\`\\$\[$(tput setaf 7)\]\[$(tput sgr0)\] \[$(tput sgr0)\]"
+#export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\n[\[$(tput setaf 3)\]\u\[$(tput setaf 2)\] @ \[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\n\`if [ \$? != 0 ]; then echo \\?!; fi\`\\$\[$(tput setaf 7)\]\[$(tput sgr0)\] \[$(tput sgr0)\]"
+export PS1="\n\[$(tput bold)\]\[$(tput setab 1)\]\u \[$(tput setab 4)\]\[$(tput setaf 1)\]▶\[$(tput setaf 7)\] \h \[$(tput setab 5)\]\[$(tput setaf 4)\]▶\[$(tput setaf 7)\] \W \[$(tput sgr0)\]\n\`if [ \$? != 0 ]; then echo \?!; fi\`\\$ "
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export EDITOR=nano
