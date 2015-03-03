@@ -25,6 +25,7 @@ export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export EDITOR=/bin/nano
 
+platform=$(uname)
 
 ################
 # TODO List
@@ -43,12 +44,17 @@ fi
 # Aliases
 ################
 alias brc="nano ~/.bashrc; source ~/.bashrc"
-alias ls="ls -lahp --color=auto"
 alias less="less -S"
 alias cls="ls -l | awk   '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
 alias qfind="find . -name "
 alias df="df -h"
 alias nano="nano -w"
+
+if [[ $platform == 'Linux' ]]; then 
+	alias ls="ls -lahp --color=auto"
+else
+	alias ls="ls -lahpG"
+fi
 
 
 ################
