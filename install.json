@@ -1,7 +1,10 @@
 [
     {
         "link": {
-            "~/.bashrc":"bashrc"
+            "~/.bashrc":"bashrc",
+            "~/.tmux.conf":"tmux",
+            "~/.gitconfig":"gitconfig",
+            "~/.gitignore":"gitignore"
         }
     },
     {
