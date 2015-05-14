@@ -9,6 +9,14 @@ if [[ $- != *i* ]] ; then
 fi
 
 
+###############
+# TMUX
+###############
+if command -v tmux > /dev/null; then
+	[[ ! $TERM =~ screen ]] && [[ -z $TMUX ]] && exec tmux
+fi
+
+
 ################
 # Source global definitions
 ################
@@ -20,8 +28,16 @@ fi
 ################
 # Setup Environment
 ################
-#export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\n[\[$(tput setaf 3)\]\u\[$(tput setaf 2)\] @ \[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\n\`if [ \$? != 0 ]; then echo \\?!; fi\`\\$\[$(tput setaf 7)\]\[$(tput sgr0)\] \[$(tput sgr0)\]"
-export PS1="\n\[$(tput bold)\]\[$(tput setab 1)\]\u \[$(tput setab 4)\]\[$(tput setaf 1)\]▶\[$(tput setaf 7)\] \h \[$(tput setab 5)\]\[$(tput setaf 4)\]▶\[$(tput setaf 7)\] \W \[$(tput sgr0)\]\n\`if [ \$? != 0 ]; then echo \?!; fi\`\\$ "
+powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2> /dev/null)
+if [[ "$powerline_path" != "" ]]; then 
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	source ${powerline_path}/bindings/bash/powerline.sh
+else
+	export PS1="\n\[$(tput bold)\]\[$(tput setab 1)\]\u \[$(tput setab 4)\]\[$(tput setaf 1)\]▶\[$(tput setaf 7)\] \h \[$(tput setab 5)\]\[$(tput setaf 4)\]▶\[$(tput setaf 7)\] \W \[$(tput sgr0)\]\n\`if [ \$? != 0 ]; then echo \?!; fi\`\\$ "
+fi
+
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export EDITOR=nano
