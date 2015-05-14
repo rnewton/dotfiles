@@ -8,4 +8,4 @@ set -g history-limit 10000
 set-option -g status-position top
 
 # powerline
-source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+source "${powerline_path}/bindings/tmux/powerline.conf"

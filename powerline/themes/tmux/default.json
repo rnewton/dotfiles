@@ -1,0 +1,39 @@
+{
+	"segments": {
+		"right": [
+			{
+				"function": "powerline.segments.common.players.spotify_apple_script",
+				"name": "player"
+			},
+			{
+				"function": "powerline.segments.common.bat.battery",
+				"name": "battery",
+				"args": {
+					"gamify": true, 
+					"full_heart": "♡ ",
+					"empty_heart": "♡ "
+				}
+			},
+			{
+				"function": "powerline.segments.common.wthr.weather",
+                "args": {
+                       "unit": "F"
+                }
+			},
+			{
+				"function": "powerline.segments.common.time.date"
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
+				"args": {
+					"format": "%H:%M",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
+		]
+	}
+}
