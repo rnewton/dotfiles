@@ -10,8 +10,8 @@
 				"name": "battery",
 				"args": {
 					"gamify": true, 
-					"full_heart": "♡ ",
-					"empty_heart": "♡ "
+					"full_heart": "💙",
+					"empty_heart": " "
 				}
 			},
 			{
