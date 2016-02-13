@@ -29,9 +29,8 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-# Install Bash 4.
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
-# running `chsh`.
+# Install Shells
+brew install zsh
 brew install bash
 brew install bash-completion
 
@@ -53,6 +52,33 @@ brew install pigz
 brew install s3cmd
 brew install tmux
 brew install tree
+brew install ant
+brew install docker
+brew install docker-machine
+brew install libtool
+brew install openssl
+brew install readline
+brew install autoconf
+brew install grep
+brew install mcrypt
+brew install screen
+brew install boost
+brew install screenfetch
+brew install desk
+brew install noti
+
+# PHP
+brew install php56
+brew install php56-mcrypt
+brew install php56-redis
+brew install php-code-sniffer
+brew install phpmd
+
+# Other languages
+brew install go
+brew install ruby
+brew install haskell-stack
+brew install erlang
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.
@@ -71,6 +97,8 @@ brew linkapps python
 brew install caskroom/cask/brew-cask
 
 # Now we need to install a bunch of casks.
+brew cask install atom
+brew cask install dash
 brew cask install dropbox
 brew cask install firefox
 brew cask install flux

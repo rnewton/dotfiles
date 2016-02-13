@@ -5,7 +5,10 @@
             "~/.tmux.conf":"tmux",
             "~/.gitconfig":"gitconfig",
             "~/.gitignore":"gitignore",
-            "~/.vimrc:":"vimrc"
+            "~/.vimrc":"vimrc",
+            "~/.zsh":"zsh",
+            "~/.zsh.local":"zsh.local",
+            "~/.zshrc":"zshrc"
         }
     },
     {
