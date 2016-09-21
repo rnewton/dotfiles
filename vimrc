@@ -29,6 +29,8 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
+Bundle 'DavidEGx/ctrlp-smarttabs'
+Plugin 'mileszs/ack.vim'
 
 " Formatting
 Plugin 'tomtom/tcomment_vim'
