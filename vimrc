@@ -47,6 +47,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'rayburgemeestre/phpfolding.vim'
 Plugin 'joonty/vdebug'
+Plugin 'go.vim'
+Plugin 'fatih/vim-go'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -190,6 +192,15 @@ let g:gist_post_private=1
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
+
 "==============================================================================
 " Auto Commands
 "==============================================================================
@@ -222,6 +233,23 @@ autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0,
 autocmd QuickFixCmdPost *grep* cwindow
 
 augroup END
+
+"==============================================================================
+" Vim-go
+"==============================================================================
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+au FileType go nmap <Leader>s <Plug>(go-implements)
 
 "==============================================================================
 " Local Configurations
