@@ -63,14 +63,23 @@ call vundle#end()
 "==============================================================================
 
 set t_Co=256
+set t_ut=  " Force vim to use the background color for the whole line
 set background=dark
-set guifont=Meslo_LG_S_Regular_for_Powerline:h12
 
 " Set up theme
 colorscheme gruvbox
 autocmd BufReadPost * highlight Comment cterm=none
 
-set clipboard=unnamed           " Use the system clipboard
+if has ('x') && has ('gui')     " On Linux use + register for copy-paste
+    set clipboard=unnamedplus
+elseif has ('gui')              " On mac and windows, use * register for copy-paste
+    set clipboard=unnamed
+endif
+
+set viewoptions=folds,options,cursor,unix,slash
+set virtualedit=onemore
+set nospell
+set nowrap
 
 set expandtab                   " Tab key inserts spaces
 set softtabstop=4               " Use 4 spaces for indentation
@@ -81,11 +90,13 @@ set smartcase                   " Unless uppercase letters are present
 set hlsearch                    " Highlight searches
 set incsearch                   " Search while typing
 
-set wrap                        " Wrap lines
 set scrolloff=3                 " Pad the cursor with 3 lines
 set scrolljump=5                " Scroll by 5 lines
 set number                      " Show line numbers
 set relativenumber              " Relative to the current line
+
+set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 silent! set colorcolumn=120     " Draw right margin at 120 characters
 
 set list                        " Enable hidden characters
@@ -100,6 +111,8 @@ set noshowmode                  " Hide current mode
 set directory^=~/.backup//      " Write swap files to ~/.backup
 
 set visualbell t_vb=            " Be quiet
+
+set pastetoggle=<F12>
 
 "==============================================================================
 " Mappings
@@ -169,6 +182,12 @@ command SudoWrite write !sudo tee % > /dev/null
 "==============================================================================
 
 let g:nerdtree_tabs_open_on_gui_startup=0
+let NERDTreeQuitOnOpen=0
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let NERDTreeIgnore=['\.swp$', '\~$', '\.swo$', '\.git', '\.hg', '\.svn']
+let NERDTreeMapOpenInTab='\r'
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_custom_ignore = 'Proxy\|vendor\|cache'
