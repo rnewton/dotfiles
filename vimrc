@@ -16,6 +16,8 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 
 " Colors
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'godlygeek/csapprox'
 Plugin 'morhetz/gruvbox'
 Plugin 'chriskempson/base16-vim'
@@ -31,6 +33,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Bundle 'DavidEGx/ctrlp-smarttabs'
 Plugin 'mileszs/ack.vim'
+Bundle 'djoshea/vim-autoread'
 
 " Formatting
 Plugin 'tomtom/tcomment_vim'
@@ -49,6 +52,7 @@ Plugin 'rayburgemeestre/phpfolding.vim'
 Plugin 'joonty/vdebug'
 Plugin 'go.vim'
 Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -68,6 +72,7 @@ set background=dark
 
 " Set up theme
 colorscheme gruvbox
+let g:airline_theme='papercolor'
 autocmd BufReadPost * highlight Comment cterm=none
 
 if has ('x') && has ('gui')     " On Linux use + register for copy-paste
@@ -108,11 +113,14 @@ set wildmode=longest,list       " Make completion mode acts like Bash
 set showcmd                     " Show incomplete normal mode commands
 set noshowmode                  " Hide current mode
 
-set directory^=~/.backup//      " Write swap files to ~/.backup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
 
 set visualbell t_vb=            " Be quiet
 
 set pastetoggle=<F12>
+
+set autoread
 
 "==============================================================================
 " Mappings
@@ -205,6 +213,8 @@ let g:syntastic_quiet_messages={ 'type': 'style' }
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='!'
+let g:syntastic_check_on_wq=0
+let g:airline#extensions#syntastic#enabled = 1
 
 let g:gist_post_private=1
 
@@ -219,6 +229,10 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
 
 "==============================================================================
 " Auto Commands
