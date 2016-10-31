@@ -23,6 +23,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'chriskempson/base16-vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'vim-scripts/darkspectrum'
+Plugin 'ryanoasis/vim-devicons'
 
 " Status
 Plugin 'bling/vim-airline'
@@ -30,7 +31,7 @@ Plugin 'bling/vim-airline'
 " Files and directories
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Bundle 'DavidEGx/ctrlp-smarttabs'
 Plugin 'mileszs/ack.vim'
 Bundle 'djoshea/vim-autoread'
@@ -200,7 +201,15 @@ let NERDTreeMapOpenInTab='\r'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_custom_ignore = 'Proxy\|vendor\|cache'
 
+let g:webdevicons_enable=1
+let g:webdevicons_enable_nerdtree=1
+let g:webdevicons_enable_airline_tabline=1
+let g:webdevicons_enable_airline_statusline=1
+let g:webdevicons_enable_ctrlp=1
+
 let g:airline_powerline_fonts=1
+let g:airline_left_sep='▓▒'
+let g:airline_right_sep='▒▓'
 
 let g:syntastic_mode_map={
     \ 'mode': 'active',
