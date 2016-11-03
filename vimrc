@@ -129,6 +129,9 @@ set autoread
 
 let mapleader="\\"
 
+" Remap esc to prevent carpal tunnel
+imap jj <Esc>
+
 " Prevent p from replacing the buffer (copy what was originally selected)
 vnoremap p pgvy
 
