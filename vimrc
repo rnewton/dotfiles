@@ -53,7 +53,6 @@ Plugin 'rayburgemeestre/phpfolding.vim'
 Plugin 'joonty/vdebug'
 Plugin 'go.vim'
 Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -180,14 +179,6 @@ noremap <silent> gy :w! ~/.clipboard<CR>:echo 'Selection written to ~/.clipboard
 
 " Navigate merge conflicts
 nnoremap <silent> <Leader>mc /^(<<<<<<<\\|=======\\|>>>>>>>)<CR>
-
-"==============================================================================
-" Commands
-"==============================================================================
-
-" File system helpers
-command Mkdir !mkdir -p %:h > /dev/null
-command SudoWrite write !sudo tee % > /dev/null
 
 "==============================================================================
 " Plugin Settings
