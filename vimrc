@@ -212,6 +212,7 @@ let g:ctrlp_user_command = {
 
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 0
+nmap <silent> <Leader>bb :TagbarToggle<CR>
 
 let g:webdevicons_enable=1
 let g:webdevicons_enable_nerdtree=1
