@@ -2,6 +2,7 @@
     {
         "link": {
             "~/.bashrc":"bashrc",
+            "~/.conky":"conky",
             "~/.tmux.conf":"tmux",
             "~/.gitconfig":"gitconfig",
             "~/.gitignore":"gitignore",
