@@ -53,6 +53,7 @@ Plugin 'rayburgemeestre/phpfolding.vim'
 Plugin 'joonty/vdebug'
 Plugin 'go.vim'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -192,8 +193,25 @@ let NERDTreeKeepTreeInNewTab=1
 let NERDTreeIgnore=['\.swp$', '\~$', '\.swo$', '\.git', '\.hg', '\.svn']
 let NERDTreeMapOpenInTab='\r'
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_custom_ignore = 'Proxy\|vendor\|cache'
+nmap <leader>T :CtrlPBufTag<CR>
+nmap <leader><leader>T :CtrlPBufTagAll<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' 
+  \ }
+
+let g:ctrlp_user_command = {
+  \ 'types': {
+      \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+  \ },
+  \ 'fallback': 'find %s -type f'
+  \ }
+
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 0
 
 let g:webdevicons_enable=1
 let g:webdevicons_enable_nerdtree=1
@@ -205,11 +223,11 @@ let g:airline_powerline_fonts=1
 let g:airline_left_sep='▓▒'
 let g:airline_right_sep='▒▓'
 
-let g:syntastic_mode_map={
+let g:syntastic_mode_map = {
     \ 'mode': 'active',
     \ 'active_filetypes': [],
     \ 'passive_filetypes': [],
-\ }
+  \ }
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_quiet_messages={ 'type': 'style' }
