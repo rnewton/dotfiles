@@ -6,6 +6,7 @@
             "~/.tmux.conf":"tmux",
             "~/.gitconfig":"gitconfig",
             "~/.gitignore":"gitignore",
+            "~/.config/rofi":"rofi",
             "~/.vimrc":"vimrc",
             "~/.zsh":"zsh",
             "~/.zsh.local":"zsh.local",
