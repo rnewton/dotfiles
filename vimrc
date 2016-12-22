@@ -181,6 +181,10 @@ noremap <silent> gy :w! ~/.clipboard<CR>:echo 'Selection written to ~/.clipboard
 " Navigate merge conflicts
 nnoremap <silent> <Leader>mc /^(<<<<<<<\\|=======\\|>>>>>>>)<CR>
 
+" Pretty-print json
+nnoremap <silent> <Leader>JS :%!python -m json.tool<CR>
+vnoremap <silent> <Leader>JS :'<,'>!python -m json.tool<CR>
+
 "==============================================================================
 " Plugin Settings
 "==============================================================================
