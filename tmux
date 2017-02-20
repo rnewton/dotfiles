@@ -32,9 +32,12 @@ set -g status-left-length 20
 set -g status-bg colour235
 set -g status-fg colour231
 set -g status-left "#{?client_prefix,#[fg=colour235]#[bg=colour142]#[nobold],#[fg=colour235]#[bg=colour231]#[nobold]} #S #{?client_prefix,#[fg=colour142]#[bg=colour235]#[nobold],#[fg=colour231]#[bg=colour235]#[nobold]}"
-set -g status-right "#[fg=colour249,bg=colour235] %Y-%m-%d #[fg=colour240]#[fg=colour249] %I:%M %p #[fg=colour142]#[bg=colour235]#[fg=colour235,bg=colour142] #h "
+set -g status-right "#[fg=colour249,bg=colour235] %Y-%m-%d #[fg=colour240]#[fg=colour249] #(TZ=America/New_York date +%%H:%%M) #[fg=colour142]#[bg=colour235]#[fg=colour235,bg=colour142] #h "
 setw -g window-status-current-format "#[fg=colour235,bg=colour142]#[fg=colour235,bg=colour142] #I  #[fg=colour235]#W #[fg=colour142,bg=colour235]"
 setw -g window-status-format "#[fg=colour249,bg=colour235]#I #[fg=colour240] #[fg=colour249,bg=colour235]#W "
+
+# Automatically renumber windows when one is closed
+set-option -g renumber-windows on
 
 if-shell "test -f ~/.tmux.conf.local" "source ~/.tmux.conf.local"
 
