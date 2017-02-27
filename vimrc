@@ -291,6 +291,9 @@ autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0,
 " Open the quickfix window with grep results
 autocmd QuickFixCmdPost *grep* cwindow
 
+" Edit crontabs in-place
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 augroup END
 
 "==============================================================================
