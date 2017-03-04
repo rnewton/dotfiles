@@ -96,6 +96,16 @@ set smartcase                   " Unless uppercase letters are present
 set hlsearch                    " Highlight searches
 set incsearch                   " Search while typing
 
+if executable('ack')
+    set grepprg=ack\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow\ $*
+    set grepformat=%f:%l:%c:%m
+endif
+
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+    set grepformat=%f:%l:%c:%m
+endif
+
 set scrolloff=3                 " Pad the cursor with 3 lines
 set scrolljump=5                " Scroll by 5 lines
 set number                      " Show line numbers
@@ -103,7 +113,7 @@ set relativenumber              " Relative to the current line
 
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-silent! set colorcolumn=120     " Draw right margin at 120 characters
+let &colorcolumn=join(range(121,999),",")
 
 set list                        " Enable hidden characters
 set listchars=tab:▷·            " Show tab characters
@@ -119,9 +129,11 @@ set directory=~/.vim/swp//
 
 set visualbell t_vb=            " Be quiet
 
-set pastetoggle=<F12>
+set pastetoggle=<F3>
 
-set autoread
+set mouse=a                     " Allow movement using the mouse in all modes
+
+set autoread                    " Reload files that changed outside of vim
 
 "==============================================================================
 " Mappings
@@ -225,13 +237,11 @@ let g:webdevicons_enable_airline_statusline=1
 let g:webdevicons_enable_ctrlp=1
 
 let g:airline_powerline_fonts=1
-let g:airline_left_sep='▓▒'
-let g:airline_right_sep='▒▓'
 
 let g:syntastic_mode_map = {
     \ 'mode': 'active',
     \ 'active_filetypes': [],
-    \ 'passive_filetypes': [],
+    \ 'passive_filetypes': ['.js', '.jsx'],
   \ }
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
@@ -255,10 +265,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
-
-let g:ycm_server_python_interpreter = '/usr/bin/python'
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 0
 
 "==============================================================================
 " Auto Commands

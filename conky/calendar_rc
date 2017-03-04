@@ -3,7 +3,7 @@ font sans:size=10
 #xftfont sans:size=10
 use_xft yes
 xftalpha 0.9
-update_interval 2
+update_interval 3
 imlib_cache_size 0
 total_run_times 0
 own_window yes
@@ -24,7 +24,7 @@ default_shade_color 101010
 default_outline_color green
 alignment top_left
 gap_x -3810
-gap_y 410
+gap_y -900
 no_buffers yes
 cpu_avg_samples 1
 uppercase no
@@ -36,15 +36,9 @@ color2 aaa
 color3 ddd
 
 TEXT
-${color2}${font Oswald:size=10:bold}MEM ${hr 2}
+${color2}
+${font Open Sans:size=32}${alignc}${time %H:%M}
+${font Open Sans:size=14}${voffset -20}${alignc}${time %A, %B %d}
 
-${color1}${memgraph 30,220}
-${voffset -32}${color2}${font Open Sans:size=12}${alignr}${memperc}%  
-${voffset -3}${color2}${font Open Sans:size=9} ${mem} / ${memmax}
-
-${color2}${font Open Sans:size=11}Top Processes:
-  ${top_mem name 1} $alignr ${top_mem mem 1}%
-  ${top_mem name 2} $alignr ${top_mem mem 2}%
-  ${top_mem name 3} $alignr ${top_mem mem 3}%
-  ${top_mem name 4} $alignr ${top_mem mem 4}%
-  ${top_mem name 5} $alignr ${top_mem mem 5}%
+${font Open Sans:size=32}${alignc}${execi 300 cat ~/.cache/weather.json | jq .temperature | cut -c1-2}°F
+${font Open Sans:size=20}${alignc}${execi 300 cat ~/.cache/weather.json | jq -r .summary }

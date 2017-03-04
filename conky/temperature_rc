@@ -8,11 +8,11 @@ imlib_cache_size 0
 total_run_times 0
 own_window yes
 own_window_type dock
-#own_window_transparent yes
+own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_argb_visual true
 own_window_argb_value 180
-own_window_colour 224466
+#own_window_colour 224466
 double_buffer yes
 minimum_size 225
 draw_shades no
@@ -24,27 +24,29 @@ default_shade_color 101010
 default_outline_color green
 alignment top_left
 gap_x -3810
-gap_y 1053
+gap_y 878
 no_buffers yes
 cpu_avg_samples 1
 uppercase no
 border_inner_margin 15
 
 #colors
-color1 96A0DF
+color1 a43a3c
 color2 aaa
 color3 ddd
 
 TEXT
-${font Oswald:bold:size=10}${color1}TEMPERATURE ${color2} ${hr 2}
+${font Oswald:bold:size=10}${color2}TEMP ${hr 2}
 
-${color3}${font Open Sans:size=9}System: ${execi 8 sensors | grep 'Physical id 0' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Physical id 0' | cut -c18-19}
+${color2}${font Open Sans:size=11}System:
 
-CPU 0:   ${execi 8 sensors | grep 'Core 0' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Core 0' | cut -c18-19}
-CPU 1:   ${execi 8 sensors | grep 'Core 1' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Core 1' | cut -c18-19}
-CPU 2:   ${execi 8 sensors | grep 'Core 2' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Core 2' | cut -c18-19}
-CPU 3:   ${execi 8 sensors | grep 'Core 3' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Core 3' | cut -c18-19}
-CPU 4:   ${execi 8 sensors | grep 'Core 4' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Core 4' | cut -c18-19}
-CPU 5:   ${execi 8 sensors | grep 'Core 5' | cut -c18-19}°C ${alignr}${execibar 8 6,140 sensors | grep 'Core 5' | cut -c18-19}
+${voffset -5}${color2}${font Open Sans:size=12}${alignr}${execi 8 sensors | grep 'Physical id 0' | cut -c18-19}°C  
+${voffset -40}${color1}${execibar 8 30,220 sensors | grep 'Physical id 0' | cut -c18-19}
+${color2}${font Open Sans:size=11}CPU:
 
-GPU:     ${execi 8 nvidia-settings -query GPUCoreTemp | grep 'gpu:0' | cut -c47-48}°C ${alignr}${execibar 8 6,140 nvidia-settings -query GPUCoreTemp | grep 'gpu:0' | cut -c47-48}
+${voffset -5}${color2}${font Open Sans:size=12}${alignr}${execi 8 sensors | grep 'Core 0' | cut -c18-19}°C  
+${voffset -40}${color1}${execibar 8 30,220 sensors | grep 'Core 0' | cut -c18-19}
+${color2}${font Open Sans:size=11}GPU:
+
+${voffset -5}${color2}${font Open Sans:size=12}${alignr}${execi 8 nvidia-settings -query GPUCoreTemp | grep 'gpu:0' | cut -c47-48}°C  
+${voffset -40}${color1}${execibar 8 30,220 nvidia-settings -query GPUCoreTemp | grep 'gpu:0' | cut -c47-48}
