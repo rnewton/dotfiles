@@ -197,6 +197,9 @@ nnoremap <silent> <Leader>mc /^(<<<<<<<\\|=======\\|>>>>>>>)<CR>
 nnoremap <silent> <Leader>JS :%!python -m json.tool<CR>
 vnoremap <silent> <Leader>JS :'<,'>!python -m json.tool<CR>
 
+" Toggle mouse mode
+map <F2> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
+
 "==============================================================================
 " Plugin Settings
 "==============================================================================
