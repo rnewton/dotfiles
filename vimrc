@@ -42,6 +42,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
+Plugin 'plasticboy/vim-markdown'
 
 " Movement
 Plugin 'terryma/vim-multiple-cursors'
@@ -301,7 +302,12 @@ autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0,
 autocmd QuickFixCmdPost *grep* cwindow
 
 " Edit crontabs in-place
-autocmd filetype crontab setlocal nobackup nowritebackup
+autocmd FileType crontab setlocal nobackup nowritebackup
+
+" Wrap text-like files
+autocmd FileType markdown setlocal wrap linebreak nolist
+autocmd FileType gitcommit setlocal wrap linebreak nolist
+autocmd FileType conf setlocal wrap linebreak nolist
 
 augroup END
 
