@@ -43,6 +43,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " Movement
 Plugin 'terryma/vim-multiple-cursors'
@@ -114,7 +115,6 @@ set relativenumber              " Relative to the current line
 
 set ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-let &colorcolumn=join(range(121,999),",")
 
 set list                        " Enable hidden characters
 set listchars=tab:▷·            " Show tab characters
