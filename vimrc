@@ -55,7 +55,10 @@ Plugin 'rayburgemeestre/phpfolding.vim'
 Plugin 'joonty/vdebug'
 Plugin 'go.vim'
 Plugin 'fatih/vim-go'
+Plugin 'elmcast/elm-vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-dispatch'
+Plugin 'OmniSharp/omnisharp-vim'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -204,6 +207,8 @@ map <F2> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 "==============================================================================
 " Plugin Settings
 "==============================================================================
+
+let g:elm_setup_keybindings=0
 
 let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeQuitOnOpen=0
