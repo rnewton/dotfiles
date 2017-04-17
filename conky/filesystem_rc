@@ -3,7 +3,7 @@ font sans:size=10
 #xftfont sans:size=10
 use_xft yes
 xftalpha 0.9
-update_interval 31
+update_interval 15
 imlib_cache_size 0
 total_run_times 0
 own_window yes
@@ -24,7 +24,7 @@ default_shade_color 101010
 default_outline_color green
 alignment top_left
 gap_x -3810
-gap_y 1173
+gap_y 1453
 no_buffers yes
 cpu_avg_samples 1
 uppercase no
