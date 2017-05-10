@@ -189,7 +189,7 @@ nnoremap <silent> g} :execute 'silent! tabmove ' . tabpagenr()<CR>
 nnoremap <silent> <Leader>con :set nonumber<CR>:set norelativenumber<CR>:sign unplace *<CR>
 
 " Git grep
-nnoremap <silent> <Leader>g :tab split<CR>:Ggrep<Space>
+nnoremap <silent> <Leader>g :tab split<CR>:Ag<Space>
 
 " Yank to shared clipboard
 noremap <silent> gy :w! ~/.clipboard<CR>:echo 'Selection written to ~/.clipboard'<CR>
