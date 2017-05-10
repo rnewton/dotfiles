@@ -10,3 +10,5 @@ load_file "completion.zsh"
 load_file "bindkeys.zsh"
 load_file "aliases.zsh"
 load_file "history.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

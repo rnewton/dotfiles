@@ -114,3 +114,5 @@ fi
 if [ -f ~/.bash_db ]; then 
 	. ~/.bash_db
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,0 +1,27 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "node": true
+  },
+  "globals": {
+      "_": true
+  },
+  "plugins": [ "react" ],
+  "extends": "eslint:recommended",
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+    "semi": "error",
+    "eqeqeq": "error",
+    "curly": "error"
+  }
+}

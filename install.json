@@ -2,11 +2,12 @@
     {
         "link": {
             "~/.bashrc":"bashrc",
+            "~/.config/rofi":"rofi",
             "~/.conky":"conky",
-            "~/.tmux.conf":"tmux",
+            "~/.eslintrc":"eslintrc",
             "~/.gitconfig":"gitconfig",
             "~/.gitignore":"gitignore",
-            "~/.config/rofi":"rofi",
+            "~/.tmux.conf":"tmux",
             "~/.vimrc":"vimrc",
             "~/.zsh":"zsh",
             "~/.zsh.local":"zsh.local",

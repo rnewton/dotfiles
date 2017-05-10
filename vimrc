@@ -5,68 +5,65 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " General
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-sensible', { 'tag': 'v1.1' }
+Plug 'tpope/vim-unimpaired'
 
 " Colors
-Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'godlygeek/csapprox'
-Plugin 'morhetz/gruvbox'
-Plugin 'chriskempson/base16-vim'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'vim-scripts/darkspectrum'
-Plugin 'ryanoasis/vim-devicons'
+Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'godlygeek/csapprox'
+Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/darkspectrum'
+Plug 'w0ng/vim-hybrid'
 
 " Status
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Files and directories
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'ctrlpvim/ctrlp.vim'
-Bundle 'DavidEGx/ctrlp-smarttabs'
-Plugin 'mileszs/ack.vim'
-Bundle 'djoshea/vim-autoread'
+Plug 'djoshea/vim-autoread'
+Plug 'fweep/vim-tabber'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
 
 " Formatting
-Plugin 'tomtom/tcomment_vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-surround'
-Plugin 'jceb/vim-orgmode'
-Plugin 'tpope/vim-speeddating'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+Plug 'godlygeek/tabular'
+Plug 'jceb/vim-orgmode'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
 
 " Movement
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
 
 " Programming
-Plugin 'scrooloose/syntastic'
-Plugin 'rayburgemeestre/phpfolding.vim'
-Plugin 'joonty/vdebug'
-Plugin 'go.vim'
-Plugin 'fatih/vim-go'
-Plugin 'elmcast/elm-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-dispatch'
-Plugin 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'csharp' }
+Plug 'elmcast/elm-vim'
+Plug 'fatih/vim-go'
+Plug 'joonty/vdebug'
+Plug 'kburdett/vim-nuuid'
+Plug 'majutsushi/tagbar'
+Plug 'rayburgemeestre/phpfolding.vim'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-dispatch'
 
 " Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'tpope/vim-fugitive'
 
-call vundle#end()
+call plug#end()
 
 "==============================================================================
 " Environment Settings
@@ -86,6 +83,9 @@ if has ('x') && has ('gui')     " On Linux use + register for copy-paste
 elseif has ('gui')              " On mac and windows, use * register for copy-paste
     set clipboard=unnamed
 endif
+
+let g:tabber_divider_style = 'unicode'
+set tabline=%!tabber#TabLine()
 
 set viewoptions=folds,options,cursor,unix,slash
 set virtualedit=onemore
@@ -204,11 +204,32 @@ vnoremap <silent> <Leader>JS :'<,'>!python -m json.tool<CR>
 " Toggle mouse mode
 map <F2> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
 
+" FZF {{{
+nmap <C-p> :call SmartFzfSearching()<CR>
+nmap g<C-p> :Files<CR>
+nmap gs<C-p> :GFiles?<CR>
+
+nmap <leader>T :BTags<CR>
+nmap g<leader>T :Tags<CR>
+
+nmap <leader>l :BLines<CR>
+nmap g<leader>l :Lines<CR>
+
+nmap <leader>b :Buffers<CR>
+
+nmap <leader>c :BCommits<CR>
+nmap g<leader>c :Commits<CR>
+" }}}
+
 "==============================================================================
 " Plugin Settings
 "==============================================================================
 
 let g:elm_setup_keybindings=0
+
+" FZF {{{
+let g:fzf_buffers_jump=1
+"  }}}
 
 let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeQuitOnOpen=0
@@ -217,23 +238,6 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let NERDTreeIgnore=['\.swp$', '\~$', '\.swo$', '\.git', '\.hg', '\.svn']
 let NERDTreeMapOpenInTab='\r'
-
-nmap <leader>T :CtrlPBufTag<CR>
-nmap <leader><leader>T :CtrlPBufTagAll<CR>
-nmap <leader>b :CtrlPBuffer<CR>
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-  \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' 
-  \ }
-
-let g:ctrlp_user_command = {
-  \ 'types': {
-      \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-  \ },
-  \ 'fallback': 'find %s -type f'
-  \ }
 
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 0
@@ -249,15 +253,17 @@ let g:airline_powerline_fonts=1
 
 let g:syntastic_mode_map = {
     \ 'mode': 'active',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['.js', '.jsx'],
   \ }
+
+let g:syntastic_php_checkers = ["php7", "phpcs", "phpmd"]
+let g:syntastic_javascript_checkers = ['eslint']
+
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_quiet_messages={ 'type': 'style' }
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='!'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_check_on_wq=0
 let g:airline#extensions#syntastic#enabled = 1
 
@@ -315,6 +321,33 @@ autocmd FileType gitcommit setlocal wrap linebreak nolist
 autocmd FileType conf setlocal wrap linebreak nolist
 
 augroup END
+
+"==============================================================================
+" Functions
+"==============================================================================
+
+" Smarter FZF Searching {{{
+" Stolen from FZF's repo since it isn't an exported function
+function! s:get_git_root()
+  if exists('*fugitive#repo')
+    try
+      return fugitive#repo().tree()
+    catch
+    endtry
+  endif
+  let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  return v:shell_error ? '' : root
+endfunction
+
+function! SmartFzfSearching()
+    let root = s:get_git_root()
+    if empty(root)
+        Files
+    else
+        GFiles
+    endif
+endfunction
+" }}}
 
 "==============================================================================
 " Vim-go
