@@ -1,14 +1,19 @@
-rofi.color-enabled: true
-rofi.color-window: argb:80777777, argb:80777777, argb:80777777
-rofi.color-normal: #e9e9e9, #002b36, #c9c9c9, #16708c, #eee8d5
-rofi.color-active: #e9e9e9, #000000, #bcbcbc, #35cd33, #fefefe
-rofi.color-urgent: #e9e9e9, #dc322f, #c9c9c9, #dc322f, #ffffff
-
-rofi.font: Ubuntu Mono 18
-
-rofi.width: 40
-rofi.monitor: -4
-
-rofi.terminal: terminix
-
-rofi.fuzzy: 1
+rofi.font:              San Francisco Display 18
+rofi.location:          0
+rofi.color-enabled:     true
+rofi.color-window:      argb:CC000000, argb:B3000000, argb:E6ffffff
+rofi.color-normal:      argb:00000000, argb:90FFFFFF, argb:00000000, argb:00000000, argb:FFFFFFFF 
+!ffe1a3ee
+rofi.color-urgent:      argb:00282a2e, argb:90FFFFFF, argb:00282a2e, argb:00000000, argb:ffcc6666
+rofi.color-active:      argb:00282a2e, argb:90FFFFFF, argb:00282a2e, argb:00000000, argb:ff81a2be
+rofi.separator-style:   solid
+rofi.fullscreen:        true
+rofi.padding:           220
+rofi.hide-scrollbar:    true
+rofi.line-margin:       4
+rofi.yoffset:           0
+rofi.xoffset:           0
+rofi.width:             100
+rofi.lines:             12
+rofi.terminal:          tilix
+rofi.fuzzy:             1
