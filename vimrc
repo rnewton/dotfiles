@@ -236,7 +236,7 @@ let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
-let NERDTreeIgnore=['\.swp$', '\~$', '\.swo$', '\.git', '\.hg', '\.svn']
+let NERDTreeIgnore=['\.swp$', '\~$', '\.swo$', '\.git', '\.hg', '\.svn', '\.meta']
 let NERDTreeMapOpenInTab='\r'
 
 let g:tagbar_autofocus = 1
