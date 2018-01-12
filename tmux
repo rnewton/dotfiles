@@ -39,5 +39,10 @@ setw -g window-status-format "#[fg=colour249,bg=colour235]#I #[fg=colour240] 
 # Automatically renumber windows when one is closed
 set-option -g renumber-windows on
 
+# Mouse mode
+setw -g mode-mouse on
+set -g mouse-select-window on
+set -g mouse-select-pane on
+
 if-shell "test -f ~/.tmux.conf.local" "source ~/.tmux.conf.local"
 
